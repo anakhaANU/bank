@@ -1,0 +1,26 @@
+<form [formGroup]="loginForm"(ngSubmit)="login()">
+    <div class="text-center rounded mx-auto d-block">
+    </div>
+    <div class="container w-50">
+        <h1>Login Form</h1>
+        <p><b>{{aim}}</b></p>
+        <div class="mb-2 p-2">
+            <label for="accno">Acccount No</label><br>
+            <input type="username" id="accno" name="acno" formControlName="acno" placeholder="Enter accno"
+                required="true"><br>
+                <div *ngIf="(this.loginForm.get('acno')?.touched||this.loginForm.get('acno')?.dirty)&&this.loginForm.get('acno')?.errors" id="error">invalid account number</div>
+
+        </div>
+        <div class="p-2">
+            <label for="pas">Password</label><br>
+            <input type="password" id="pas" name="pswd"formControlName="pswd" placeholder="Enter Password"><br>
+        </div>
+        <div *ngIf="(this.loginForm.get('pswd')?.touched||this.loginForm.get('pswd')?.dirty)&&this.loginForm.get('pswd')?.errors" id="error">invalid password</div>
+
+
+        <div class="mb-2 p-2">
+            <button type="submit"  value="Login" class="btn btn-success">Login</button>
+        </div>
+    </div>
+</form>
+<p style="color:antiquewhite;align-items:baseline;">Not a user?<a routerLink="register">Register</a></p>

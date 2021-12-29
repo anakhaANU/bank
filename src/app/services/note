@@ -1,0 +1,20 @@
+http clientmodule import=>in app.module
+. inject http client in ds
+
+rxjs=> to solve asyns event
+ reactive extentions for js
+
+ observable=> .subscribe()
+
+ angular pipes
+
+ syntax=> expression | pipe operator[:pipe argument]
+
+ parent child communication
+ parent to child data sharing 
+ child to parent data sharing
+
+ input decorate use cheyth aan parentil ninn childlek value kodukunnath
+
+ attribute directive=> set of styles apply cheyyan
+

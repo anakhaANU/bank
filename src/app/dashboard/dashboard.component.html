@@ -1,0 +1,124 @@
+
+  <h1>Welcome {{user}}</h1>
+  <p>Login date(Unformatted):{{lDate}}</p>
+  <p>Login data(using pipe):{{lDate | date | uppercase}}</p>
+  <a routerLink="/transaction">view Transaction History</a> <br><br>
+<!-- <form (ngSubmit)="register()"> -->
+    <button class="btn btn-warning" (click)="logout()" >logout</button> <br><br>
+
+    <form [formGroup]="depositForm"(ngSubmit)="deposit()">
+
+    
+    <div [ngClass]="acno? 'C1':'' "class="container w-50">
+
+        <h2 appHighlight>Deposit</h2>
+    
+        
+    
+        <div class="p-2">
+    
+            <label for="accno">Acc No</label> <br>
+    
+            <input type="acno" id="accno" name="acno" formControlName="acno"><br>
+    
+        </div>
+        <div *ngIf="(this.depositForm.get('acno')?.touched||this.depositForm.get('acno')?.dirty)&&this.depositForm.get('acno')?.errors" id="error">invalid account number</div>
+
+    
+        <div class="p-2">
+    
+            <label for="pas">password</label><br>
+    
+            <input type="password" id="pas" name="pswd" formControlName="pswd"><br>
+    
+        </div>
+        <div *ngIf="(this.depositForm.get('pswd')?.touched||this.depositForm.get('pswd')?.dirty)&&this.depositForm.get('pswd')?.errors" id="error">invalid password</div>
+
+    
+        <!-- <div class="p-2">
+    
+            <label for="pas1">Confirm password</label> <br>
+    
+            <input type="password" id="pas1"><br>
+    
+        </div> -->
+    
+        <div class="p-2">
+    
+            <label for="amt">Amount</label> <br>
+    
+            <input type="amount" id="amt" name="amnt" formControlName="amnt"  ><br>
+    
+        </div>
+        <div *ngIf="(this.depositForm.get('amnt')?.touched||this.depositForm.get('amnt')?.dirty)&&this.depositForm.get('amnt')?.errors" id="error">invalid amount</div>
+
+    
+        <div>
+    
+            <button type="submit"  value="deposit" class="btn btn-primary">deposit</button>
+    
+        </div>
+    
+        </div>
+    </form>
+
+    
+    <!-- </form> -->
+    
+            <!-- <p style="color: white; align-items: baseline;"> Please <a routerLink=''>Login </a> If you already registered...!</p> -->
+
+            <br>
+            <form [formGroup]="withdrawForm"(ngSubmit)="withdraw()">
+
+
+            <div [ngClass]="acno? 'C1':'' " class="container w-50">
+
+                <h2 appHighlight>withdraw</h2>
+            
+                
+            
+                <div class="p-2">
+            
+                    <label for="accno">Acc No</label> <br>
+            
+                    <input type="acno" id="accno1" name="acno1" formControlName="acno1"><br>
+            
+                </div>
+
+                <div *ngIf="(this.withdrawForm.get('acno1')?.touched||this.withdrawForm.get('acno1')?.dirty)&&this.withdrawForm.get('acno1')?.errors" id="error">invalid account number</div>
+
+
+            
+                <div class="p-2">
+            
+                    <label for="pas">password</label><br>
+            
+                    <input type="password" id="pas1" name="pswd1" formControlName="pswd1"><br>
+            
+                </div>
+                <div *ngIf="(this.withdrawForm.get('pswd1')?.touched||this.withdrawForm.get('pswd1')?.dirty)&&this.withdrawForm.get('pswd1')?.errors" id="error">invalid password</div>
+
+               
+            
+                <div class="p-2">
+            
+                    <label for="amt">Amount</label> <br>
+            
+                    <input type="amount" id="amt1"  name="amnt1" formControlName="amnt1"  ><br>
+            
+                </div>
+                <div *ngIf="(this.withdrawForm.get('amnt1')?.touched||this.withdrawForm.get('amnt1')?.dirty)&&this.withdrawForm.get('amnt1')?.errors" id="error">invalid amount</div>
+
+            
+                <div>
+            
+                    <button type="submit"  value="withdraw" class="btn btn-primary">withdraw</button>
+            
+                </div><br>
+                <!-- property binding -->
+                <app-deleteconfirmation (onCancel)="onCancel()" (onDelete)="onDelete($event)" [item]="acno"></app-deleteconfirmation>
+                
+                <button id="b1" (click)="deleteFormParent()" class="btn btn-danger">Delete</button>
+            
+                </div>
+            </form>

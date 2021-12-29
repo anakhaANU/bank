@@ -1,0 +1,62 @@
+<form [formGroup]="registerform" (ngSubmit)="register()">
+
+    <div class="container w-50">
+
+        <h2>Sign Up</h2>
+    
+        <div class="mb-2 p-2">
+    
+            <label for="f_name">User Name</label><br>
+    
+            <input type="username" id="f_name" name="uname" formControlName="uname" required="true"><br>
+    
+        </div>
+        <div *ngIf="(this.registerform.get('uname')?.touched||this.registerform.get('uname')?.dirty)&&this.registerform.get('uname')?.errors" id="error">invalid username</div>
+    
+        <div class="p-2">
+    
+            <label for="accno">Acc No</label> <br>
+    
+            <input type="acno" id="accno"  name="acno" formControlName="acno"><br>
+    
+        </div>
+        <div *ngIf="(this.registerform.get('acno')?.touched||this.registerform.get('acno')?.dirty)&&this.registerform.get('acno')?.errors" id="error">invalid account number</div>
+
+    
+        <div class="p-2">
+    
+            <label for="pas">password</label><br>
+    
+            <input type="password" id="pas" name="pswd" formControlName="pswd"><br>
+    
+        </div>
+        <div *ngIf="(this.registerform.get('pswd')?.touched||this.registerform.get('pswd')?.dirty)&&this.registerform.get('pswd')?.errors" id="error">invalid password</div>
+
+    
+        <!-- <div class="p-2">
+    
+            <label for="pas1">Confirm password</label> <br>
+    
+            <input type="password" id="pas1"><br>
+    
+        </div> -->
+    
+        <div class="p-2">
+    
+            <label for="bal">Balance</label> <br>
+    
+            <input type="balance" id="bal"  ><br>
+    
+        </div>
+    
+        <div>
+    
+            <button type="submit"  value="Register" class="btn btn-primary">Register</button>
+    
+        </div>
+    
+        </div>
+    
+    </form>
+    
+            <p style="color: white; align-items: baseline;"> Please <a routerLink=''>Login </a> If you already registered...!</p>
